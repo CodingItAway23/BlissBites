@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bliss Bites - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('logo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .logo a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .logo span {
+      margin-left: 10px;
+      color: #d5aaff;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    nav a {
+      color: #d5aaff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0 10px;
+    }
+
+    .hero {
+      padding: 120px 20px 80px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      color: #e2e2e2;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      background-color: #d5aaff;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #b89bff;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="logo.png" alt="Bliss Bites Logo" />
+        <span>BLISS BITES</span>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="about.html">ABOUT US</a>
+      <a href="menu.html">MENU</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Crave. Order. Enjoy.</h1>
+    <p>Looking for a quick snack delivered to you? We got you!</p>
+    <div class="buttons">
+      <a href="about.html">ABOUT US</a>
+      <a href="menu.html">VIEW MENU</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Bliss Bites. All rights reserved.
+  </footer>
+
+</body>
+</html>

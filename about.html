@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bliss Bites | About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+    }
+
+    .navbar {
+      background-color: #000;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: #d5aaff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .logo {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .logo div:first-child {
+      font-size: 40px;
+      font-weight: bold;
+      color: #d5aaff;
+    }
+
+    .logo-subtitle {
+      font-size: 16px;
+      color: #ccc;
+      letter-spacing: 1.5px;
+    }
+
+    .about-hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .about-hero h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .about-section,
+    .model-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .about-section h1,
+    .model-section h1 {
+      font-size: 36px;
+      color: #d5aaff;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .about-content {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .about-text {
+      flex: 1;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .about-text strong {
+      color: #ffc4ff;
+    }
+
+    .about-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .model-section p {
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .model-section strong {
+      color: #ffc4ff;
+    }
+
+    footer {
+      background-color: #111;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="menu.html">MENU</a>
+    <a href="contact.html">CONTACT US</a>
+  </div>
+
+  <div class="logo">
+    <div>BLISS BITES</div>
+    <div class="logo-subtitle">CRAVE ORDER ENJOY</div>
+  </div>
+
+  <div class="about-hero">
+    <h2>LOOKING FOR A QUICK SNACK DELIVERED TO YOU?</h2>
+    <p>We got you!</p>
+  </div>
+
+  <section class="about-section">
+    <h1>About Us</h1>
+    <div class="about-content">
+      <div class="about-text">
+        <p><strong>Bliss Bites</strong> is a campus-first food delivery service born at BITS Pilani, built by students, for students.<br><br>
+          We started with one simple mission—to bring food from <strong>Redis</strong> and <strong>night canteens</strong> directly to hostel rooms, without the long queues, unnecessary walking, or missed study time.<br><br>
+          In a campus of <strong>4000+ students</strong>, where food is fuel for both brains and late-night breakdowns, we decided it was time for something better. Bliss Bites delivers meals from all your favorite on-campus eateries—<strong>fast</strong>, <strong>affordable</strong>, and just a few clicks away.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="looters.jpeg" alt="Looters">
+      </div>
+    </div>
+  </section>
+
+  <section class="model-section">
+    <h1>Our Model</h1>
+    <p>
+      Most delivery apps inflate the base prices of food and stack on extra service charges.<br><br>
+      At Bliss Bites, we keep it <strong>real</strong>.<br><br>
+      You pay only the base price of the food, no hidden costs.<br><br>
+      To make ordering even smoother, we use a <strong>wallet-based</strong> payment system:
+      <br><br>
+      • Add money to your Bliss Wallet once.<br>
+      • Pay only for food and a small delivery fee (₹4-₹7).<br>
+      • No extra charges for frequent users.<br><br>
+      Bliss Bites makes food delivery faster, fairer, and truly made for <strong>BITSians</strong>.
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Bliss Bites. All rights reserved.
+  </footer>
+
+  <script>
+    console.log("About page loaded");
+  </script>
+
+</body>
+</html>

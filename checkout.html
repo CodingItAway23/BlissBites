@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout - Bliss Bites</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background-color: #000;
+    }
+
+    nav a {
+      color: #d5aaff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0 10px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d5aaff;
+      margin-bottom: 30px;
+    }
+
+    #cart-summary {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    #place-order {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #d5aaff;
+      color: #000;
+      border: none;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #place-order:hover {
+      background-color: #b89bff;
+    }
+
+    #order-success {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #28a745;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <a href="index.html">BLISS BITES</a>
+    </div>
+    <div class="nav-links">
+      <a href="about.html">ABOUT US</a>
+      <a href="menu.html">MENU</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+
+  <h1>Checkout</h1>
+
+  <div id="cart-summary"></div>
+
+  <button id="place-order" onclick="placeOrder()">Place Order</button>
+
+  <div id="order-success">
+    🎉 Order Placed Successfully!
+  </div>
+
+  <script>
+    function renderCheckout() {
+      const cartData = localStorage.getItem('cart');
+      const cart = cartData ? JSON.parse(cartData) : [];
+
+      const cartSummary = document.getElementById('cart-summary');
+      cartSummary.innerHTML = '';
+
+      if (cart.length === 0) {
+        cartSummary.innerHTML = '<p>No items in cart.</p>';
+        document.getElementById('place-order').style.display = 'none';
+        return;
+      }
+
+      let total = 0;
+
+      cart.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <span>${item.name}</span>
+          <span>₹${item.price}</span>
+        `;
+        cartSummary.appendChild(div);
+        total += item.price;
+      });
+
+      cartSummary.innerHTML += `<hr><h3>Total: ₹${total}</h3>`;
+    }
+
+    function placeOrder() {
+      localStorage.removeItem('cart');
+      document.getElementById('cart-summary').style.display = 'none';
+      document.getElementById('place-order').style.display = 'none';
+      document.getElementById('order-success').style.display = 'block';
+    }
+
+    renderCheckout();
+  </script>
+
+</body>
+</html>

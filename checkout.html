@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Checkout - Bliss Bites</title>
   <style>
     body {
@@ -32,6 +32,37 @@
       text-align: center;
       color: #d5aaff;
       margin-bottom: 30px;
+    }
+
+    #wallet {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      background-color: #111;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    #wallet span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #wallet button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #d5aaff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #wallet button:hover {
+      background-color: #b89bff;
     }
 
     #cart-summary {
@@ -91,15 +122,34 @@
 
   <h1>Checkout</h1>
 
+  <!-- Wallet Section -->
+  <div id="wallet">
+    <span>💰 Wallet: <span id="wallet-balance">0</span></span>
+    <button onclick="addToWallet(10)">Add ₹10</button>
+  </div>
+
+  <!-- Cart Summary -->
   <div id="cart-summary"></div>
 
   <button id="place-order" onclick="placeOrder()">Place Order</button>
 
-  <div id="order-success">
-    🎉 Order Placed Successfully!
-  </div>
+  <div id="order-success">🎉 Order Placed Successfully!</div>
 
   <script>
+    function getWalletBalance() {
+      return parseInt(localStorage.getItem('wallet') || '0');
+    }
+
+    function setWalletBalance(amount) {
+      localStorage.setItem('wallet', amount);
+      document.getElementById('wallet-balance').textContent = amount;
+    }
+
+    function addToWallet(amount) {
+      const current = getWalletBalance();
+      setWalletBalance(current + amount);
+    }
+
     function renderCheckout() {
       const cartData = localStorage.getItem('cart');
       const cart = cartData ? JSON.parse(cartData) : [];
@@ -130,13 +180,28 @@
     }
 
     function placeOrder() {
-      localStorage.removeItem('cart');
-      document.getElementById('cart-summary').style.display = 'none';
-      document.getElementById('place-order').style.display = 'none';
-      document.getElementById('order-success').style.display = 'block';
+      const wallet = getWalletBalance();
+      const cartData = localStorage.getItem('cart');
+      const cart = cartData ? JSON.parse(cartData) : [];
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+      if (wallet >= total) {
+        // Deduct from wallet and place order
+        setWalletBalance(wallet - total);
+        localStorage.removeItem('cart');
+        document.getElementById('cart-summary').style.display = 'none';
+        document.getElementById('place-order').style.display = 'none';
+        document.getElementById('order-success').style.display = 'block';
+      } else {
+        alert("Insufficient wallet balance! Add more funds to place your order.");
+      }
     }
 
-    renderCheckout();
+    // Initial setup
+    window.onload = () => {
+      renderCheckout();
+      setWalletBalance(getWalletBalance());
+    };
   </script>
 
 </body>

@@ -245,6 +245,7 @@
       cart.push(item);
       showNotification(`${item.name} added to cart!`);
       renderCart();
+      renderMenu(); // 👈 Refresh menu to update item count
     }
 
     function removeFromCart(item) {
@@ -254,6 +255,7 @@
         showNotification(`${item.name} removed from cart!`);
       }
       renderCart();
+      renderMenu(); // 👈 Refresh menu to update item count
     }
 
     function renderMenu() {
@@ -304,7 +306,6 @@
       setTimeout(() => notif.remove(), 2500);
     }
 
-    // Load default menu
     window.onload = renderMenu;
   </script>
 </body>
